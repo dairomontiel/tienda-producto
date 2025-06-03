@@ -1,0 +1,247 @@
+/* src/components/Carrito.css */
+.carrito-container {
+  position: relative;
+  display: inline-block;
+}
+
+.carrito-button {
+  background-color: #f0f2f5;
+  border: 1px solid #dcdcdc;
+  border-radius: 25px;
+  padding: 10px 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1em;
+  color: #333;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.carrito-button:hover {
+  background-color: #e2e4e7;
+  border-color: #c0c0c0;
+}
+
+.carrito-icon {
+  width: 24px;
+  height: 24px;
+  color: #555;
+}
+
+.carrito-contador {
+  background-color: #007bff;
+  color: white;
+  border-radius: 50%;
+  padding: 2px 8px;
+  font-size: 0.8em;
+  font-weight: bold;
+  min-width: 20px;
+  text-align: center;
+}
+
+.carrito-dropdown {
+  position: absolute;
+  top: 120%; /* Ajusta la posición vertical debajo del botón */
+  right: 0;
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  min-width: 300px;
+  max-width: 90vw; /* Asegura que no se desborde en móviles */
+  padding: 20px;
+  z-index: 1000; /* Asegura que esté por encima de otros elementos */
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.carrito-dropdown h3 {
+  margin-top: 0;
+  font-size: 1.3em;
+  color: #2c3e50;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+}
+
+.carrito-dropdown p {
+  color: #555;
+  text-align: center;
+}
+
+.cart-items-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 300px; /* Altura máxima para la lista de ítems */
+  overflow-y: auto; /* Scroll si hay muchos ítems */
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 10px 0;
+  border-bottom: 1px dashed #eee;
+}
+
+.cart-item:last-child {
+  border-bottom: none;
+}
+
+.cart-item-image {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.cart-item-details {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.cart-item-title {
+  font-weight: 600;
+  font-size: 0.95em;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.cart-item-price {
+  font-size: 0.9em;
+  color: #666;
+}
+
+.cart-item-quantity-controls {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 5px;
+}
+
+.quantity-button {
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 3px 8px;
+  cursor: pointer;
+  font-size: 0.9em;
+  font-weight: bold;
+  transition: background-color 0.2s ease;
+}
+
+.quantity-button:hover {
+  background-color: #e0e0e0;
+}
+
+.item-quantity {
+  font-weight: 600;
+  min-width: 20px;
+  text-align: center;
+}
+
+.remove-item-button {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.8em;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  flex-shrink: 0;
+}
+
+.remove-item-button:hover {
+  background-color: #c82333;
+}
+
+.cart-summary {
+  border-top: 1px solid #eee;
+  padding-top: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cart-summary p {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.1em;
+  margin: 0;
+  color: #333;
+}
+
+.total-items-count, .total-price-display {
+  font-weight: 700;
+  color: #007bff;
+}
+
+.checkout-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 25px;
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+  width: 100%;
+  margin-top: 10px;
+  font-weight: 600;
+  box-shadow: 0 2px 5px rgba(0, 123, 255, 0.2);
+}
+
+.checkout-button:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+/* Responsive adjustments for dropdown */
+@media (max-width: 768px) {
+  .carrito-dropdown {
+    right: 50%; /* Centra el dropdown en pantallas pequeñas */
+    transform: translateX(50%);
+    min-width: unset; /* Quita el min-width fijo */
+    width: 95vw; /* Ocupa casi todo el ancho de la pantalla */
+    padding: 15px;
+  }
+
+  .cart-item-image {
+    width: 50px;
+    height: 50px;
+  }
+
+  .cart-item-title {
+    font-size: 0.9em;
+  }
+
+  .cart-item-price {
+    font-size: 0.85em;
+  }
+
+  .quantity-button {
+    padding: 2px 6px;
+  }
+
+  .remove-item-button {
+    width: 20px;
+    height: 20px;
+    font-size: 0.7em;
+  }
+
+  .checkout-button {
+    padding: 10px 20px;
+    font-size: 1em;
+  }
+}
